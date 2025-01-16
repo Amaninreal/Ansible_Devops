@@ -1,0 +1,11 @@
+- name: Install Java
+  apt:
+    name: default-jdk
+    state: present
+  become: yes
+  register: java_install
+
+- name: Verify Java Installation
+  command: java -version
+  ignore_errors: true
+  register: java_check
